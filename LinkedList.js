@@ -10,7 +10,7 @@ toString()：由于列表项使用了Node类，就需要重写继承自JavaScrip
 */
 let that;
 //保存每个结点的node
-class lNode {
+class ListNode {
   constructor(ele) {
     this.data = ele
     this.next = null
@@ -25,7 +25,7 @@ class LinkedList {
   // 链表尾部追加元素方法
   append(element) {
     // 1.根据新元素创建节点
-    let newNode = new lNode(element);
+    let newNode = new ListNode(element);
     // 2.判断原来链表是否为空
     if (this.head == null) {
       this.head = newNode;
@@ -46,7 +46,7 @@ class LinkedList {
     //判断position是否越界
     if (position > this.length || position < 0) return false; //因为位置信息是错误的, 所以数据肯定是添加失败的
     // 2.找到正确的位置, 并且插入数据
-    let newNode = new lNode(element)
+    let newNode = new ListNode(element)
     let current = this.head
     let previous = null
     let index = 0
@@ -132,7 +132,7 @@ class LinkedList {
   }
   //得到第一个元素
   getFirst() {
-    if (!isEmpty) {
+    if (!this.isEmpty()) {
       return this.head.data
     }
     return -1
@@ -155,17 +155,17 @@ class LinkedList {
   }
 }
 //测试
-// let list = new LinkedList()
+let list = new LinkedList()
 
-// list.append(15)
-// list.append(11)
-// list.append(14)
-// list.append(56)
-// list.insert(1, 88)
-// console.log(list.getFirst());
+list.append(15)
+list.append(11)
+list.append(14)
+list.append(56)
+list.insert(1, 88)
+console.log(list.getFirst());
 
-// console.log(list.toString())
-// console.log(list.indexOf(14))
-// console.log(list.remove(56))
-// console.log(list.toString())
-// console.log(list.isEmpty());
+console.log(list.toString())
+console.log(list.indexOf(14))
+console.log(list.remove(56))
+console.log(list.toString())
+console.log(list.isEmpty());
